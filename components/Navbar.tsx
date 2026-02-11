@@ -6,7 +6,7 @@ export default function Navbar() {
         <nav className="bg-surena-brown text-white py-4 shadow-md sticky top-0 z-50">
             <div className="container mx-auto px-4 flex justify-between items-center">
                 <Link href="/" className="font-serif text-2xl font-bold flex items-center gap-2">
-                    {/* Placeholder for small logo if needed, or just text */}
+                    <Image src="/logo.png" alt="La Sureña Logo" width={40} height={40} className="object-contain" />
                     <span>La Sureña</span>
                 </Link>
                 <ul className="flex gap-6 text-sm md:text-base font-medium">

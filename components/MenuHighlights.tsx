@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function MenuHighlights() {
     const highlights = [
@@ -26,18 +29,31 @@ export default function MenuHighlights() {
     ];
 
     return (
-        <section className="py-20 bg-amber-50">
+        <section id="menu" className="py-20 bg-amber-50">
             <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16"
+                >
                     <h2 className="text-4xl font-bold text-gray-800 mb-4 font-serif">Nuestros Favoritos</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
                         Descubre los platos más solicitados por nuestros clientes, preparados con recetas tradicionales y mucho cariño.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {highlights.map((item) => (
-                        <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    {highlights.map((item, index) => (
+                        <motion.div
+                            key={item.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                        >
                             <div className="relative h-64 w-full bg-gray-200">
                                 {/* Placeholder for image - using div for now to avoid next/image errors if file missing */}
                                 <div className="flex items-center justify-center h-full text-gray-400">
@@ -54,7 +70,7 @@ export default function MenuHighlights() {
                                     Ver detalles &rarr;
                                 </button>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

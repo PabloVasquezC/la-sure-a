@@ -13,6 +13,10 @@
   --font-sans: var(--font-geist-sans), sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #FFF8E1;
   --foreground: #3E2723;

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
@@ -6,10 +9,15 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/50 z-10" />
             <div
                 className="absolute inset-0 bg-cover bg-center z-0"
-                style={{ backgroundImage: "url('/images/fachada.png')" }} // Placeholder, ensure this image exists or use a color
+                style={{ backgroundImage: "url('/fachada.png')" }}
             />
 
-            <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative z-20 text-center px-4 max-w-4xl mx-auto"
+            >
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 font-serif tracking-tight">
                     La Sureña
                 </h1>
@@ -30,7 +38,7 @@ export default function Hero() {
                         Reservar Mesa
                     </Link>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
