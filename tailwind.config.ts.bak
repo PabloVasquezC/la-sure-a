@@ -1,0 +1,26 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+    content: [
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    theme: {
+        extend: {
+            colors: {
+                background: "var(--background)",
+                foreground: "var(--foreground)",
+                "surena-red": "#C62828", // Terracotta red from logo
+                "surena-brown": "#5D4037", // Wood brown
+                "surena-yellow": "#FBC02D", // Corn yellow
+                "surena-cream": "#FFF8E1", // Warm background
+            },
+            fontFamily: {
+                serif: ["var(--font-playfair)", "serif"],
+                sans: ["var(--font-geist-sans)", "sans-serif"],
+            },
+        },
+    },
+    plugins: [],
+};
+export default config;
