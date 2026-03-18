@@ -3,15 +3,6 @@
 import { motion } from "framer-motion";
 import { MapPin, MessageCircle, Instagram, Navigation } from "lucide-react";
 
-const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
-    }),
-};
-
 const directions = [
     {
         title: "Desde el centro de Molina",
@@ -43,11 +34,10 @@ export default function LocationSection() {
                 {/* Header */}
                 <motion.div
                     className="text-center mb-16"
-                    initial="hidden"
-                    whileInView="visible"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    custom={0}
-                    variants={fadeInUp}
+                    transition={{ duration: 0.6 }}
                 >
                     <span className="text-surena-yellow font-semibold uppercase tracking-widest text-sm">Encuéntranos</span>
                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mt-2 mb-4">
@@ -61,11 +51,10 @@ export default function LocationSection() {
                 <div className="grid lg:grid-cols-2 gap-10 items-start">
                     {/* Map Embed */}
                     <motion.div
-                        initial="hidden"
-                        whileInView="visible"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.2 }}
-                        custom={1}
-                        variants={fadeInUp}
+                        transition={{ duration: 0.6, delay: 0.1 }}
                         className="rounded-2xl overflow-hidden shadow-2xl border-4 border-surena-yellow/30"
                     >
                         <iframe
@@ -81,18 +70,14 @@ export default function LocationSection() {
                     </motion.div>
 
                     {/* Directions + Contact */}
-                    <motion.div
-                        className="space-y-6"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.2 }}
-                        variants={{ visible: { transition: { staggerChildren: 0.15 } }, hidden: {} }}
-                    >
+                    <div className="space-y-6">
                         {directions.map((d, i) => (
                             <motion.div
                                 key={i}
-                                variants={fadeInUp}
-                                custom={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.15, duration: 0.5 }}
                                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10"
                             >
                                 <div className="flex items-center gap-3 mb-3">
@@ -110,7 +95,13 @@ export default function LocationSection() {
                         ))}
 
                         {/* Contact buttons */}
-                        <motion.div variants={fadeInUp} custom={3} className="pt-2 flex flex-col sm:flex-row gap-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.45, duration: 0.5 }}
+                            className="pt-2 flex flex-col sm:flex-row gap-4"
+                        >
                             <a
                                 href="https://wa.me/56967855832"
                                 target="_blank"
@@ -139,7 +130,7 @@ export default function LocationSection() {
                                 Ver en Maps
                             </a>
                         </motion.div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
