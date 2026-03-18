@@ -1,56 +1,64 @@
-import { MapPin, Phone, Clock, Facebook, Instagram } from "lucide-react";
+import Image from "next/image";
+import { MapPin, MessageCircle, Clock, Instagram } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer id="contact" className="bg-surena-cream pt-16 pb-8 border-t-4 border-surena-red">
-            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <footer id="contact" className="bg-[#3E2000] text-white pt-16 pb-8">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
-                {/* Contact Info */}
-                <div className="text-center md:text-left">
-                    <h3 className="text-xl font-bold text-surena-brown mb-4">Ubícanos</h3>
-                    <ul className="space-y-3 text-gray-700">
-                        <li className="flex items-center justify-center md:justify-start gap-2">
-                            <MapPin className="text-surena-red" />
-                            <span>Calle Principal 123, Comuna</span>
-                        </li>
-                        <li className="flex items-center justify-center md:justify-start gap-2">
-                            <Phone className="text-surena-red" />
-                            <span>+56 9 1234 5678</span>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Hours */}
-                <div className="text-center">
-                    <h3 className="text-xl font-bold text-surena-brown mb-4">Horario de Atención</h3>
-                    <div className="inline-block bg-white p-4 rounded-lg shadow-sm border border-surena-brown/10">
-                        <div className="flex items-center justify-center gap-2 mb-2 text-surena-red font-bold">
-                            <Clock />
-                            <span>Lunes a Viernes</span>
+                    {/* Brand */}
+                    <div className="text-center md:text-left">
+                        <div className="flex items-center gap-3 justify-center md:justify-start mb-4">
+                            <Image src="/logo.png" alt="La Sureña" width={50} height={50} className="object-contain rounded-full bg-white/10 p-1" />
+                            <span className="font-serif text-2xl font-bold text-surena-yellow">La Sureña</span>
                         </div>
-                        <p className="text-2xl font-bold text-gray-800">10:00 a.m. - 7:00 p.m.</p>
+                        <p className="text-sm text-gray-400 leading-relaxed">
+                            Comida casera, sabores auténticos del sur de Chile. Un lugar para descansar, compartir y sentirse como en casa.
+                        </p>
+                    </div>
+
+                    {/* Hours */}
+                    <div className="text-center">
+                        <h3 className="text-lg font-bold text-surena-yellow mb-4 flex items-center justify-center gap-2">
+                            <Clock size={18} />
+                            Horario de Atención
+                        </h3>
+                        <div className="bg-white/10 rounded-xl p-4 inline-block">
+                            <p className="text-gray-300 text-sm mb-1">Lunes a Domingo</p>
+                            <p className="text-xl font-bold text-white">10:00 – 22:00</p>
+                        </div>
+                    </div>
+
+                    {/* Contact */}
+                    <div className="text-center md:text-right">
+                        <h3 className="text-lg font-bold text-surena-yellow mb-4">Contáctanos & Redes</h3>
+                        <ul className="space-y-3 text-sm text-gray-300">
+                            <li className="flex items-center justify-center md:justify-end gap-2">
+                                <MapPin size={16} className="text-surena-yellow flex-shrink-0" />
+                                <span>Ruta K-19, Sector San Pedro, Molina</span>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/56967855832" target="_blank" rel="noopener noreferrer"
+                                   className="flex items-center justify-center md:justify-end gap-2 hover:text-green-400 transition-colors">
+                                    <MessageCircle size={16} />
+                                    +56 9 6785 5832
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/lasurenademolina" target="_blank" rel="noopener noreferrer"
+                                   className="flex items-center justify-center md:justify-end gap-2 hover:text-pink-400 transition-colors">
+                                    <Instagram size={16} />
+                                    @lasurenademolina
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                {/* Social / About */}
-                <div className="text-center md:text-right">
-                    <h3 className="text-xl font-bold text-surena-brown mb-4">Síguenos</h3>
-                    <div className="flex justify-center md:justify-end gap-4">
-                        <a href="#" className="bg-surena-brown text-white p-2 rounded-full hover:bg-surena-red transition-colors">
-                            <Facebook size={20} />
-                        </a>
-                        <a href="#" className="bg-surena-brown text-white p-2 rounded-full hover:bg-surena-red transition-colors">
-                            <Instagram size={20} />
-                        </a>
-                    </div>
-                    <p className="mt-4 text-sm text-gray-500">
-                        La mejor comida casera de la zona.
-                    </p>
+                <div className="border-t border-white/10 pt-6 text-center text-sm text-gray-500">
+                    © {new Date().getFullYear()} La Sureña · Restaurante Tradicional & Casero · Todos los derechos reservados.
                 </div>
-            </div>
-
-            <div className="mt-12 text-center text-sm text-gray-400 border-t border-gray-200 pt-4">
-                &copy; {new Date().getFullYear()} La Sureña. Todos los derechos reservados.
             </div>
         </footer>
     );
